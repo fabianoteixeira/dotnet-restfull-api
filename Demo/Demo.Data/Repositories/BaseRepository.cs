@@ -30,7 +30,7 @@ namespace Demo.Data.Repositories
         {
             var entity = GetById(id);
             _context.Set<T>().Remove(entity);
-
+            _context.SaveChanges();
             return true;
         }
 
@@ -44,10 +44,11 @@ namespace Demo.Data.Repositories
             return _context.Set<T>().AsNoTracking().First(x => x.Id == id);
         }
 
-        public bool Update(T entity)
+        public T Update(T entity)
         {
-            _context.Set<T>().Update(entity);
-            return true;
+            _context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
+            return entity;
         }
     }
 }

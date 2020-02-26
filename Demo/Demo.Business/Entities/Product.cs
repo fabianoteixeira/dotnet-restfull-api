@@ -12,5 +12,11 @@ namespace Demo.Business.Entities
             Id = Guid.NewGuid();
             Name = name;
         }
+
+        public Product(Guid id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
     }
 }

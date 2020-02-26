@@ -33,9 +33,9 @@ namespace Demo.Business.Services
             return _productRepository.GetById(id);
         }
 
-        public bool Update(ProductDTO entity)
+        public Product Update(ProductDTO entity)
         {
-            return _productRepository.Update(new Product(entity.Name));
+            return _productRepository.Update(new Product(entity.id, entity.Name));
         }
     }
 }

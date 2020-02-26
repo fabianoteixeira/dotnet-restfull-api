@@ -29,5 +29,36 @@ namespace Demo.Api.Controllers
             return Ok(_productService.Add(request));
         }
 
+        [HttpGet]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public IActionResult Get()
+        {
+            return Ok(_productService.GetAll());
+        }
+
+        [HttpGet("id")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public IActionResult Get(Guid id)
+        {
+            return Ok(_productService.GetById(id));
+        }
+
+        [HttpDelete]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public IActionResult Delete(Guid id)
+        {
+            return Ok(_productService.Delete(id));
+        }
+
+        [HttpPut]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public IActionResult Update(ProductDTO dto)
+        {
+            return Ok(_productService.Update(dto));
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace Demo.Business.Interfaces
         Product GetById(Guid id);
         IEnumerable<Product> GetAll();
         Product Add(ProductDTO entity);
-        bool Update(ProductDTO entity);
+        Product Update(ProductDTO entity);
         bool Delete(Guid id);
     }
 }
